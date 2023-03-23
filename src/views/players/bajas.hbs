@@ -1,0 +1,51 @@
+{{#if message}}
+  <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+    {{text}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+<div class="card mt-2">
+    <div class="card-header bg-dark text-white">
+        <h3>jugadores</h3>
+    </div>
+    <div class="card body bg-dark text-white">
+        <div class="row">
+            {{#each players}}
+            <div class="col-md-2 mb-1">
+                <a href="/players/{{name}}">
+                    <img src="/public/upload/teams/{{image}}" alt="" class="w-45 h-50 img-thumbnail">
+                </a>
+                <p>{{name}}</p>
+                <p>Equipo: {{team}}</p>
+
+                <div class="row">
+                    <div class="col mb-2">
+                        <form action="/players/delete/{{name}}/completed" method="POST">
+                            <button class="btn btn-danger" type="submit">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/players/restore/{{name}}" method="POST">
+
+                            <button class="btn btn-success" type="submit">
+                                Restaurar
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+                
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

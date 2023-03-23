@@ -1,0 +1,91 @@
+<div class="card border-white mt-4">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2>{{team.name}}</h2>
+
+    </div>
+    <div class="card-body bg-dark">
+        <div class="text-center">
+            <img src="/public/upload/{{team.image}}" alt="" class="img-fluid">
+        </div>
+        {{#if user}}
+
+        <div class="row row-cols-3">
+
+            <div class="col-4">
+                <form action="/players/add/{{team.name}}" method="POST">
+                    <input type="hidden" value="{{team.name}}" name="team">
+
+                    <button type="submit" class="btn btn-success mt-3">
+                        Agregar jugador
+                    </button>
+                </form>
+            </div>
+            <div class="col-4">
+                <form action="/teams/delete/{{team.name}}" method="POST">
+                    <button type="submit" class="btn btn-success mt-3">
+                        Eliminar equipo
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-4">
+                <a href="/teams/update/{{team.name}}" class="btn btn-success mt-3">
+                    Editar equipo
+                </a>
+            </div>
+        </div>
+
+        
+
+
+        {{/if}}
+    </div>
+</div>
+
+{{#if user}}
+<div class="card mt-2">
+    <div class="card-header bg-dark text-white">
+        <h3>jugadores</h3>
+    </div>
+    <div class="card body bg-dark text-white">
+        <div class="row">
+            {{#each players}}
+            <div class="col-md-2 mb-1">
+                <a href="/players/{{name}}">
+                    <img src="/public/upload/teams/{{image}}" alt="" class="w-45 h-50 img-thumbnail">
+                </a>
+                <p>{{name}}</p>
+
+
+                <form action="/players/delete/{{name}}" method="POST">
+
+                    <button class="btn btn-danger" type="submit">
+                        Baja
+                    </button>
+
+                </form>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="card mt-2">
+    <div class="card-header bg-dark text-white">
+        <h3>jugadores</h3>
+    </div>
+    <div class="card body bg-dark text-white">
+        <div class="row">
+            {{#each players}}
+            <div class="col-md-2 mb-1">
+                <a href="/players/{{name}}">
+                    <img src="/public/upload/teams/{{image}}" alt="" class="w-45 h-50 img-thumbnail">
+                </a>
+                <p>{{name}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,44 @@
+
+<div class="row mt-5">
+  <div class="col-md-7 mx-auto">
+    <div class="card bg-dark text-white">
+      <div class="card-header pt-5" >
+        <h4 class="text-center">
+          Registrar Equipo
+        </h4>
+      </div>
+      <div class="card-body">
+        <form action="/teams/add" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="name">Nombre del equipo:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+            />
+          </div>
+          
+          <div class="mb-3">
+            <label> Categoria:</label>
+                <select name="category" id="categ" class="form-select form-select-sm" aria-label="Ejemplo de .form-select-sm">
+                    <option selected>Seleccionar Categoria</option>
+                    <option name="category" value="Premiere">Premiere</option>
+                    <option name="category" value="Ascenso">Ascenso</option>
+                </select>
+          
+          </div>
+
+          <div class="mb-3">
+                <div class="form-group pb-4">
+                <label for="inputGroupFile" class="custom-File-label" >Seleccionar Imagen</label>
+                <input type="file" name="image" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" required> 
+            </div>
+            </div>
+          <button class="btn btn-success btn-block">
+            Registrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

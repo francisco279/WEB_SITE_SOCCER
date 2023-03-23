@@ -1,0 +1,98 @@
+{{#if message}}
+    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+    {{text}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+<div class="container mt-4">
+
+
+<div class="card mb-3 mx-auto" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/public/upload/teams/{{image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Edad: {{age}}</p>
+        <p class="card-text">Posición: {{position}}</p>
+        <p class="card-text">Equipo: {{team}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {{#if user}}
+    <div class="card bg-dark text-white col-md-7 mx-auto">
+      <div class="card-header pt-5" >
+        <h4 class="text-center">
+          Actualizar datos
+        </h4>
+      </div>
+      <div class="card-body">
+        <form action="/players/update/{{name}}" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="name">Nombre del Jugador:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              value={{name}}
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="age">Edad:</label>
+            <input
+              type="number"
+              class="form-control"
+              name="age"
+              value={{age}}
+            />
+          </div>
+          
+          <div class="mb-3">
+            <label> Posición:</label>
+                <select name="position" class="form-select form-select-sm" aria-label="Ejemplo de .form-select-sm">
+                    <option selected>{{position}}</option>
+                    <option value="Portero">Portero</option>
+                    <option value="Defensa">Defensa</option>
+                    <option value="Mediocampista">Mediocampista</option>
+                    <option value="Delantero">Delantero</option>
+                </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="name">Equipo:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="team2"
+              value={{team}}
+              disabled
+            />
+
+            <input type="hidden" name="team" value={{team}}>
+          </div>
+
+          <div class="mb-3">
+                <div class="form-group pb-4">
+                <label for="inputGroupFile" class="custom-File-label" >Seleccionar Imagen</label>
+                <input type="file" name="image" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon"> 
+            </div>
+            </div>
+          <button class="btn btn-success btn-block">
+            Actualizar
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
+{{/if}}

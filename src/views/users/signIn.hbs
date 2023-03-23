@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card mt-5 bg-dark rounded">
+      <div class="card-header text-center pt-5">
+        <h1 class="h4 text-white">
+          Iniciar Sesión
+        </h1>
+      </div>
+      <div class="card-body">
+        <form action="/users/signin" method="POST">
+          <div class="mb-3">
+            <label for="email" class="text-white">Correo Electrónico:</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              autofocus
+            />
+          </div>
+          <div class="mb-3">
+            <label for="passswore" class="text-white">Contraseña:</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+            />
+          </div>
+          <button class="btn btn-success btn-block">
+            Entrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
