@@ -3,3 +3,6 @@ a website to manage a soccer league, login and permissions; developed with handl
 
 # Requirements
  NodeJS, MongoDB
+
+# Initialization
+use npm run dev for run development server and npm start to run the web site
